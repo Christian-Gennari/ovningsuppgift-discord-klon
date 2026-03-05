@@ -42,6 +42,7 @@ async function getMessages() {
 
   data.forEach((item) => {
     const listItem = document.createElement("div");
+    listItem.classList.add("message-item");
     const userName = document.createElement("p");
     userName.textContent = item.user;
     userName.classList.add("user-name");
