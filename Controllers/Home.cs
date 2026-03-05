@@ -13,6 +13,12 @@ public class Home : Controller
     [HttpGet]
     public IActionResult Get()
     {
-        return Content("<h1>Hello World!</h1>", "text/html");
+        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "public", "index.html");
+
+        if (!File.Exists(filePath))
+        {
+            return NotFound("The file public/index.html was not found.");
+        }
+        return PhysicalFile(filePath, "text/html");
     }
 }
