@@ -4,3 +4,6 @@ GET {{_Kurs_webb_csharp_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+{{_Kurs_webb_csharp_HostAddress}}/api/messages
+Accept: application/json

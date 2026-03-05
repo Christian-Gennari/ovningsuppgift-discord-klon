@@ -1,4 +1,4 @@
-namespace _Kurs_webb_csharp;
+
 
 public class Message
 {
