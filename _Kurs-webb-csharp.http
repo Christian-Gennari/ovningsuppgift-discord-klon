@@ -1,0 +1,6 @@
+@_Kurs_webb_csharp_HostAddress = http://localhost:5259
+
+GET {{_Kurs_webb_csharp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
