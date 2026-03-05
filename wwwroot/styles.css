@@ -1,47 +1,59 @@
-
-html, main {
+html, body {
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    margin: 0;
+    overflow: hidden; 
 }
-
 
 body {
     background: #313338; 
     color: #f2f3f5;
     font-family: Arial, sans-serif;
-    margin: 0;
     padding: 20px;
+    box-sizing: border-box;
+    display: flex;             
+    flex-direction: column;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;       
+    width: 100%;               
+    gap: 20px;    
+    flex: 1;                   
+    min-height: 0; 
+}        
 
 h1 {
-    align-self: center;
-    color: #f2f3f5;
-    margin: 0;
+    margin: 0;  
 }
-
 
 #message-container {
     background: #2b2d31; 
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-top: 20px;
     padding: 16px;
     border-radius: 8px;
     border: 1px solid #1e1f22;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    flex: 1;                   
+    overflow-y: auto;          
+    min-height: 0;             
+    scrollbar-width: thin;
+    scrollbar-color: #1e1f22 #414346;
 }
 
-
-.message-box {
+.message-item {
     display: flex;
     flex-direction: column;
     background: #383a40; 
     padding: 10px 14px;
     border-radius: 6px;
     max-width: 600px;
+    flex-shrink: 0;            
 }
 
 .user-name {
@@ -50,17 +62,18 @@ h1 {
     margin: 0 0 4px 0;
 }
 
-
 .message {
     margin: 0;
     color: #dcddde;
 }
 
-
 #input-container {
     display: flex;
     gap: 10px;
-    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    flex-shrink: 0;            
 }
 
 #input-container input {
@@ -70,8 +83,33 @@ h1 {
     border-radius: 6px;
     color: #f2f3f5;
     font-size: 14px;
+    box-sizing: border-box;
 }
 
 #input-container input::placeholder {
     color: #7a7c85;
+}
+
+#name-input {
+    flex: 2;          
+    max-width: 150px; 
+}
+
+#message-input {
+    flex: 3;
+}
+
+/* Chrome, Edge & Safari scrollbar */
+#message-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+#message-container::-webkit-scrollbar-track {
+    background: #414346; 
+    border-radius: 8px;
+}
+
+#message-container::-webkit-scrollbar-thumb {
+    background: #1e1f22; 
+    border-radius: 8px;
 }
