@@ -14,6 +14,12 @@ window.addEventListener("keypress", async (event) => {
   }
 });
 
+//Scrollar längst ner  
+function scrollToBottom() {
+  const container = document.getElementById("message-container");
+  container.scrollTop = container.scrollHeight;
+}
+
 async function sendMessage() {
   const message = messageInput.value;
   const name = nameInput.value;
@@ -27,8 +33,10 @@ async function sendMessage() {
       body: JSON.stringify({ user: name, messageSent: message }),
     });
 
+    // Töm input-container efter att meddelandet skickats
     if (response.ok) {
-      getMessages();
+      messageInput.value = "";
+      await getMessages();
     }
   }
 }
@@ -43,6 +51,7 @@ async function getMessages() {
   data.forEach((item) => {
     const listItem = document.createElement("div");
     listItem.classList.add("message-item");
+    
     const userName = document.createElement("p");
     userName.textContent = item.user;
     userName.classList.add("user-name");
@@ -54,7 +63,7 @@ async function getMessages() {
     listItem.appendChild(userName);
     listItem.appendChild(message);
     list.appendChild(listItem);
-
-    console.log(list);
   });
+
+  scrollToBottom();
 }
