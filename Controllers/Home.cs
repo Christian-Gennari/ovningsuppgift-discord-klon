@@ -15,7 +15,7 @@ public class Home : Controller
     {
         var filePath = Path.Combine(Directory.GetCurrentDirectory(), "public", "index.html");
 
-        if (!File.Exists(filePath))
+        if (!System.IO.File.Exists(filePath))
         {
             return NotFound("The file public/index.html was not found.");
         }
