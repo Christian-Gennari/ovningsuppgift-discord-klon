@@ -52,7 +52,8 @@ h1 {
     background: #383a40; 
     padding: 10px 14px;
     border-radius: 6px;
-    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box;
     flex-shrink: 0;            
 }
 
