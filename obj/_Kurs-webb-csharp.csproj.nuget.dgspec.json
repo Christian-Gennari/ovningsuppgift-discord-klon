@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LENOVO\\Documents\\git-syncs\\_Kurs-webb-csharp\\_Kurs-webb-csharp.csproj": {}
+    "/Users/astridskoglund/Documents/GitHub/ovningsuppgift-discord-klon/_Kurs-webb-csharp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LENOVO\\Documents\\git-syncs\\_Kurs-webb-csharp\\_Kurs-webb-csharp.csproj": {
+    "/Users/astridskoglund/Documents/GitHub/ovningsuppgift-discord-klon/_Kurs-webb-csharp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LENOVO\\Documents\\git-syncs\\_Kurs-webb-csharp\\_Kurs-webb-csharp.csproj",
+        "projectUniqueName": "/Users/astridskoglund/Documents/GitHub/ovningsuppgift-discord-klon/_Kurs-webb-csharp.csproj",
         "projectName": "_Kurs-webb-csharp",
-        "projectPath": "C:\\Users\\LENOVO\\Documents\\git-syncs\\_Kurs-webb-csharp\\_Kurs-webb-csharp.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LENOVO\\Documents\\git-syncs\\_Kurs-webb-csharp\\obj\\",
+        "projectPath": "/Users/astridskoglund/Documents/GitHub/ovningsuppgift-discord-klon/_Kurs-webb-csharp.csproj",
+        "packagesPath": "/Users/astridskoglund/.nuget/packages/",
+        "outputPath": "/Users/astridskoglund/Documents/GitHub/ovningsuppgift-discord-klon/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/astridskoglund/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -75,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
