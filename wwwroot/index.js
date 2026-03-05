@@ -57,3 +57,5 @@ async function getMessages() {
     console.log(list);
   });
 }
+
+setInterval(getMessages, 2000);
