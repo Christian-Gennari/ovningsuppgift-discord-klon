@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Mime;
+using System.Runtime.Versioning;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace _Kurs_webb_csharp.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("/")]
+[Route("home")]
 public class Home : Controller
 {
     [HttpGet]
