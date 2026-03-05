@@ -14,6 +14,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+var messageHistory = new List<Message>();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
