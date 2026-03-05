@@ -8,7 +8,13 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 // Add global singleton list of messages so it is easily accessible in the Messages controller
-builder.Services.AddSingleton<List<Message>>(new List<Message>());
+builder.Services.AddSingleton<List<Message>>(
+    new List<Message>
+    {
+        new Message { User = "Admin", MessageSent = "Welcome to the chat!" },
+        new Message { User = "Admin", MessageSent = "Feel free to send a message." },
+    }
+);
 
 var app = builder.Build();
 
