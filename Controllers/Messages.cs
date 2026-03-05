@@ -10,8 +10,10 @@ namespace _Kurs_webb_csharp.Controllers;
 
 [ApiController]
 [Route("/api/messages")]
-public class Messages : Controller
+public class Messages(List<Message> messageHistorySingleton) : Controller
 {
+    private readonly List<Message> _messageHistorySingleton = messageHistorySingleton;
+
     [HttpPost]
     public IActionResult Create([FromBody] Message message)
     {
@@ -19,20 +21,9 @@ public class Messages : Controller
         {
             return BadRequest("MessageSent cannot be null.");
         }
-        // Get the file of messages.json
-        var filePath = "messages.json";
 
         Message newMessage = new Message { User = message.User, MessageSent = message.MessageSent };
-
-        var json = System.IO.File.ReadAllText(filePath);
-        // Read the file and deserialize it to a list of messages
-
-        var messages = JsonSerializer.Deserialize<List<Message>>(json);
-
-        messages.Add(newMessage);
-        // Serialize the list of messages and write it to the file
-        var updatedJson = JsonSerializer.Serialize(messages);
-        System.IO.File.WriteAllText(filePath, updatedJson);
+        _messageHistorySingleton.Add(newMessage);
 
         // write the message to the bottom of the file
         Console.WriteLine($"Received message: {message.User}");
@@ -42,10 +33,6 @@ public class Messages : Controller
     [HttpGet]
     public IActionResult GetMessages()
     {
-        var json = System.IO.File.ReadAllText("messages.json");
-
-        var messages = JsonSerializer.Deserialize<List<Message>>(json);
-
-        return Ok(messages);
+        return Ok(_messageHistorySingleton);
     }
 }
