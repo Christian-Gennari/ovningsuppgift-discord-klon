@@ -12,7 +12,9 @@ builder.Services.AddSingleton<List<Message>>(
     new List<Message>
     {
         new Message { User = "Admin", MessageSent = "Welcome to the chat!" },
-        new Message { User = "Admin", MessageSent = "Feel free to send a message." },
+        new Message { User = "Rebecca", MessageSent = "Feel free to send a message." },
+        new Message { User = "Gustav", MessageSent = "Jag har inte några meddelanden." },
+        new Message { User = "Testare", MessageSent = "I don't like JS." },
     }
 );
 
