@@ -17,7 +17,7 @@ namespace _Kurs_webb_csharp.Controllers;
 public class Messages(List<Message> messageHistorySingleton, IHostApplicationLifetime lifetime)
     : Controller
 {
-    private readonly List<Message> _messageHistorySingleton;
+    private readonly List<Message> _messageHistorySingleton = messageHistorySingleton;
 
     [HttpPost]
     public IActionResult Create([FromBody] Message message)
