@@ -49,7 +49,7 @@ public class Messages(List<Message> messageHistorySingleton, IHostApplicationLif
         {
             try
             {
-                await Task.Delay(30000, cts.Token);
+                await Task.Delay(3000, cts.Token);
             }
             catch (TaskCanceledException)
             {

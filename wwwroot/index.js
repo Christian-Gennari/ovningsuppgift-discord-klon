@@ -34,7 +34,12 @@ async function sendMessage() {
 }
 
 async function getMessages() {
-  const response = await fetch("/api/messages");
+  const response = await fetch("/api/messages", {
+      headers: {
+        "x-poll": "yes",
+      },
+    });
+  
   const data = await response.json();
   const list = document.getElementById("message-container");
 
@@ -59,4 +64,4 @@ async function getMessages() {
   });
 }
 
-setInterval(getMessages, 2000);
+
