@@ -14,7 +14,8 @@ namespace _Kurs_webb_csharp.Controllers;
 
 [ApiController]
 [Route("/api/messages")]
-public class Messages(List<Message> messageHistorySingleton, IHostApplicationLifetime lifetime) : Controller
+public class Messages(List<Message> messageHistorySingleton, IHostApplicationLifetime lifetime)
+    : Controller
 {
     private readonly List<Message> _messageHistorySingleton;
 
@@ -37,7 +38,6 @@ public class Messages(List<Message> messageHistorySingleton, IHostApplicationLif
     [HttpGet]
     public async Task<IActionResult> GetMessages()
     {
-
         using var cts = CancellationTokenSource.CreateLinkedTokenSource(
             HttpContext.RequestAborted,
             lifetime.ApplicationStopping
@@ -47,7 +47,15 @@ public class Messages(List<Message> messageHistorySingleton, IHostApplicationLif
 
         if (pollHeader == "yes")
         {
-            await Task.Delay(30000, cts.Token);
+            try
+            {
+                await Task.Delay(30000, cts.Token);
+            }
+            catch (TaskCanceledException)
+            {
+                Console.WriteLine("Long polling request was cancelled.");
+            }
+
             return Ok(_messageHistorySingleton);
         }
         else
