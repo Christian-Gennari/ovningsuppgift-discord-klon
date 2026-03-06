@@ -1,7 +1,10 @@
+using System.ComponentModel.Design.Serialization;
 using System.Net;
 using System.Net.Cache;
 using System.Net.Mime;
+using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
+using System.Security.AccessControl;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
@@ -11,9 +14,9 @@ namespace _Kurs_webb_csharp.Controllers;
 
 [ApiController]
 [Route("/api/messages")]
-public class Messages(List<Message> messageHistorySingleton) : Controller
+public class Messages(List<Message> messageHistorySingleton, IHostApplicationLifetime lifetime) : Controller
 {
-    private readonly List<Message> _messageHistorySingleton = messageHistorySingleton;
+    private readonly List<Message> _messageHistorySingleton;
 
     [HttpPost]
     public IActionResult Create([FromBody] Message message)
@@ -34,11 +37,17 @@ public class Messages(List<Message> messageHistorySingleton) : Controller
     [HttpGet]
     public async Task<IActionResult> GetMessages()
     {
+
+        using var cts = CancellationTokenSource.CreateLinkedTokenSource(
+            HttpContext.RequestAborted,
+            lifetime.ApplicationStopping
+        );
+
         Request.Headers.TryGetValue("x-poll", out var pollHeader);
 
         if (pollHeader == "yes")
         {
-            await Task.Delay(30000);
+            await Task.Delay(30000, cts.Token);
             return Ok(_messageHistorySingleton);
         }
         else
