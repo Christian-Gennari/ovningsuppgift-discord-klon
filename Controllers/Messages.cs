@@ -1,4 +1,5 @@
 using System.Net;
+using System.Net.Cache;
 using System.Net.Mime;
 using System.Runtime.Versioning;
 using System.Security.Cryptography;
@@ -31,8 +32,18 @@ public class Messages(List<Message> messageHistorySingleton) : Controller
     }
 
     [HttpGet]
-    public IActionResult GetMessages()
+    public async Task<IActionResult> GetMessages()
     {
-        return Ok(_messageHistorySingleton);
+        Request.Headers.TryGetValue("x-poll", out var pollHeader);
+
+        if (pollHeader == "yes")
+        {
+            await Task.Delay(30000);
+            return Ok(_messageHistorySingleton);
+        }
+        else
+        {
+            return Ok(_messageHistorySingleton);
+        }
     }
 }
