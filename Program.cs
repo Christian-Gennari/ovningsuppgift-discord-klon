@@ -1,4 +1,5 @@
 using _Kurs_webb_csharp;
+/*using Microsoft.AspNetCore.OpenApi;*/
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+/*builder.Services.AddOpenApi();*/
 
 // Add global singleton list of messages so it is easily accessible in the Messages controller
 builder.Services.AddSingleton<List<Message>>(
@@ -25,10 +26,10 @@ builder.Services.AddSingleton<MessageNotifier>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+/*if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-}
+}*/
 
 app.UseDefaultFiles();
 app.UseStaticFiles();

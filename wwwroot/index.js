@@ -16,7 +16,11 @@ window.addEventListener("load", async () => {
 
 async function sendMessage() {
   const message = messageInput.value;
-  const name = nameInput.value;
+  let name = nameInput.value.trim()
+  
+  if (name === "") {
+    name = "Anonymous";
+  }
 
   if (message && name) {
     const response = await fetch("/api/messages", {
@@ -27,6 +31,9 @@ async function sendMessage() {
       body: JSON.stringify({ user: name, messageSent: message }),
     });
   }
+  
+  messageInput.value = '';
+  nameInput.value = '';
 }
 
 async function getMessages(pollHeader) {

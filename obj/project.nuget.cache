@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "uNSByJh3Cas=",
+  "dgSpecHash": "c75JatvsvH8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\LENOVO\\Documents\\git-syncs\\_Kurs-webb-csharp\\_Kurs-webb-csharp.csproj",
+  "projectFilePath": "/Users/astridskoglund/Documents/GitHub/ovningsuppgift-discord-klon/_Kurs-webb-csharp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.0\\microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
-    "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+    "/Users/astridskoglund/.nuget/packages/microsoft.aspnetcore.openapi/10.0.0/microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
+    "/Users/astridskoglund/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"
   ],
   "logs": []
 }

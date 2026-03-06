@@ -484,3 +484,4 @@ $RECYCLE.BIN/
 *.swp
 obj/project.nuget.cache
 obj/project.nuget.cache
+obj/*
