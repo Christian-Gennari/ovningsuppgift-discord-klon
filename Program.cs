@@ -1,3 +1,5 @@
+using _Kurs_webb_csharp;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -17,6 +19,8 @@ builder.Services.AddSingleton<List<Message>>(
         new Message { User = "Testare", MessageSent = "I don't like JS." },
     }
 );
+
+builder.Services.AddSingleton<MessageNotifier>();
 
 var app = builder.Build();
 
