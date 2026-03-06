@@ -26,8 +26,6 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
-
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
@@ -35,4 +33,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run("http://0.0.0.0:5000");
+app.Run("http://localhost:5000");
