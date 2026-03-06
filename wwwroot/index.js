@@ -7,12 +7,12 @@ window.addEventListener("load", async () => {
   await getMessages("no");
 });
 
-// window.addEventListener("keypress", async (event) => {
-//   if (event.key === "Enter") {
-//     event.preventDefault();
-//     await sendMessage();
-//   }
-// });
+window.addEventListener("keypress", async (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    await sendMessage();
+  }
+});
 
 async function sendMessage() {
   const message = messageInput.value;
