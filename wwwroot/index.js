@@ -4,7 +4,7 @@ const messageInput = document.getElementById("message-input");
 const nameInput = document.getElementById("name-input");
 
 window.addEventListener("load", async () => {
-  await getMessages();
+  await getMessages("no");
 });
 
 window.addEventListener("keypress", async (event) => {
@@ -26,20 +26,16 @@ async function sendMessage() {
       },
       body: JSON.stringify({ user: name, messageSent: message }),
     });
-
-    if (response.ok) {
-      getMessages();
-    }
   }
 }
 
-async function getMessages() {
+async function getMessages(pollHeader) {
   const response = await fetch("/api/messages", {
-      headers: {
-        "x-poll": "yes",
-      },
-    });
-  
+    headers: {
+      "x-poll": pollHeader || "yes",
+    },
+  });
+
   const data = await response.json();
   const list = document.getElementById("message-container");
 
@@ -64,4 +60,10 @@ async function getMessages() {
   });
 }
 
+async function pollMessages() {
+  while (true) {
+    await getMessages();
+  }
+}
 
+pollMessages();
